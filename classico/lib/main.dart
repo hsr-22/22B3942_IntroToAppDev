@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-  
+
   void _decrementCounter() {
     setState(() {
       _counter--;
@@ -65,52 +65,45 @@ class _MyHomePageState extends State<MyHomePage> {
         title: "Test App",
         home: Scaffold(
             backgroundColor: Colors.grey.shade200,
-          appBar: AppBar(title:const Text("Counter App")),
-          floatingActionButton: Wrap( //will break to another line on overflow
-            direction: Axis.horizontal, //use vertical to show  on vertical axis
-            children: <Widget>[
-              Container(
-                  margin:const EdgeInsets.all(10),
-                  child: FloatingActionButton(
-                    onPressed: (){
-                      _decrementCounter();//action code for button 1
-                    },
-                    backgroundColor: Colors.lightBlueAccent,
+            appBar: AppBar(title: const Text("Counter App")),
+            floatingActionButton: Wrap(
+              //will break to another line on overflow
+              direction: Axis.horizontal,
+              //use vertical to show  on vertical axis
+              children: <Widget>[
+                Container(
+                    margin: const EdgeInsets.all(10),
+                    child: FloatingActionButton(
+                      onPressed: () {
+                        _decrementCounter(); //action code for button 1
+                      },
+                      backgroundColor: Colors.lightBlueAccent,
+                      child: const Icon(Icons.remove),
+                    )), //button first
 
-                    child: const Icon(Icons.remove),
-                  )
-              ), //button first
-
-              Container(
-                  margin:const EdgeInsets.all(10),
-                  child: FloatingActionButton(
-                    onPressed: (){
-                      _incrementCounter();//action code for button 2
-                    },
-                    backgroundColor: Colors.deepPurpleAccent,
-
-                    child: const Icon(Icons.add),
-                  )
-              ), // button second
-
-              // Add more buttons here
-            ],
-          ),
-          body: Container(
-            child: Center(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                const Text("You have pushed the button this many times:"),
-                Text(
-                  '$_counter',
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
+                Container(
+                    margin: const EdgeInsets.all(10),
+                    child: FloatingActionButton(
+                      onPressed: () {
+                        _incrementCounter(); //action code for button 2
+                      },
+                      backgroundColor: Colors.deepPurpleAccent,
+                      child: const Icon(Icons.add),
+                    )), // button second
               ],
-              )
             ),
-          )
-        )
-    );
+            body: Container(
+              child: Center(
+                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text("You have pushed the button this many times:"),
+                  Text(
+                    '$_counter',
+                    style: Theme.of(context).textTheme.headlineLarge,
+                  ),
+                ],
+              )),
+            )));
   }
 }
